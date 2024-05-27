@@ -10,6 +10,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from common.statics import static
+from common.environments import get_env
 
 
 # Directory : ../api/versions
@@ -35,12 +36,16 @@ for _path, _, _files, in os.walk(directory):
         _include = 'api.versions.{}.{}.urls'.format(version, api_name)
 
         api_urls.append(path(f"{version}/", include(_include)))
-        # version_map_dict[version].append(path(f"{}"))
+
 
 urlpatterns = [
-    path('api/', include(api_urls)),
-    path('admin/', admin.site.urls),
+  path('api/', include(api_urls))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if "test" in get_env("DJANGO_MODULE_SETTINGS"):
+    urlpatterns.append(
+        path('admin/', admin.site.urls),
+    )
 
 schema_view = get_schema_view(
     openapi.Info(
