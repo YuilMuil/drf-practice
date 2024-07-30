@@ -26,20 +26,20 @@ def get_secret(setting, _secrets=secrets):
 
 SECRET_KEY = get_secret("SECRET")
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.auth',
-
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'drf_yasg'
+    'drf_yasg',
+    'api.models.users'
 ]
 
-if "test" in os.environ.get("DJANGO_MODULE_SETTINGS"):
+if "test" in os.environ.get("DJANGO_SETTINGS_MODULE"):
     INSTALLED_APPS.append(
         'django.contrib.admin',
     )
@@ -94,6 +94,8 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Seoul'
 USE_I18N = True
 USE_TZ = False
+
+AUTH_USER_MODEL = 'users.User'
 
 
 # Static files (CSS, JavaScript, Images)

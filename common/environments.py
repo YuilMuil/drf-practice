@@ -2,4 +2,4 @@ import os
 
 
 def get_env(variable):
-    os.environ.get(variable)
+    return os.environ.get(variable)

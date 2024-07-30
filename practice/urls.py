@@ -42,7 +42,7 @@ urlpatterns = [
   path('api/', include(api_urls))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if "test" in get_env("DJANGO_MODULE_SETTINGS"):
+if "test" in get_env("DJANGO_SETTINGS_MODULE"):
     urlpatterns.append(
         path('admin/', admin.site.urls),
     )
