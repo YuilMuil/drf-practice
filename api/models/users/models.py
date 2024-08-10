@@ -36,6 +36,12 @@ class User(DefaultModel, AbstractBaseUser, PermissionsMixin):
     id = models.BigAutoField(primary_key=True, help_text="유저 아이디")
     email = models.EmailField(unique=True, max_length=30, null=False, blank=False, help_text="유저 이메일", )
     name = models.CharField(max_length=16, help_text="유저 이름")
+    gender = models.PositiveSmallIntegerField(
+        help_text="0: 남자, 1: 여자, 2: 알수없음",
+        null=True,
+        blank=True
+    )
+    birth_date = models.CharField(max_length=8, help_text="생년월일 (YYYYMMDD)", null=True, blank=True)
     is_active = models.BooleanField(default=True, help_text="활성화 여부(0: 활성화, 1: 비활성화)")
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
