@@ -8,23 +8,26 @@ from common.mixins import MappingViewSetMixin
 from .serializers import UserSerializer
 
 
-class UserViewSet(mixins.CreateModelMixin,
-                  mixins.ListModelMixin,
-                  mixins.RetrieveModelMixin,
-                  mixins.UpdateModelMixin,
-                  mixins.DestroyModelMixin,
-                  MappingViewSetMixin,
-                  GenericViewSet):
+class UserViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    MappingViewSetMixin,
+    GenericViewSet,
+):
     """
     :comment: User CRUD, Login & Join.
     """
+
     serializer_action_map = {
         "create": UserSerializer,
         "retrieve": UserSerializer,
         "list": UserSerializer,
         "update": UserSerializer,
         "partial_update": UserSerializer,
-        "destroy": UserSerializer
+        "destroy": UserSerializer,
     }
     queryset = User.objects.filter(is_active=True, is_staff=False, is_superuser=False)
 

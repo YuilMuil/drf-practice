@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
             "is_active",
             "is_staff",
             "is_superuser",
-            "last_login"
+            "last_login",
         )
 
     def validate_email(self, email):
@@ -36,8 +36,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         represented = super().to_representation(instance)
-        del represented['is_active']
-        del represented['is_staff']
-        del represented['is_superuser']
-        del represented['last_login']
+        del represented["is_active"]
+        del represented["is_staff"]
+        del represented["is_superuser"]
+        del represented["last_login"]
         return represented

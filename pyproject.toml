@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "drf-practice"
+name = "practice"
 version = "0.1.0"
 description = "DRF Practice to learn"
 authors = ["myname <your-email@example.com>"]
