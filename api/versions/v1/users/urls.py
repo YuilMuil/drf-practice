@@ -10,13 +10,6 @@ urlpatterns = [
     path("users", UserViewSet.as_view({"post": "create", "get": "list"})),
     path(
         "users/<int:pk>",
-        UserViewSet.as_view(
-            {
-                "get": "retrieve",
-                "put": "update",
-                "patch": "partial_update",
-                "delete": "delete",
-            }
-        ),
+        UserViewSet.as_view({"get": "retrieve"}),
     ),
 ]
