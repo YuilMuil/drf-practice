@@ -8,16 +8,23 @@ from rest_framework import permissions
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from api.versions.v1.users.urls import urlpatterns as user_urls
 
 from api.versions.v1.users.urls import urlpatterns as user_urls
 
 from common.statics import static
 from common.environments import get_env
 
+<<<<<<< Updated upstream
 
 urlpatterns = [path("", include(user_urls))] + static(
     settings.STATIC_URL, document_root=settings.STATIC_ROOT
 )
+=======
+urlpatterns = [
+  path('', include(user_urls))
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+>>>>>>> Stashed changes
 
 if "test" in get_env("DJANGO_SETTINGS_MODULE"):
     urlpatterns.append(

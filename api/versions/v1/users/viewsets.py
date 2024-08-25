@@ -10,6 +10,7 @@ from .serializers import UserSerializer
 
 class UserViewSet(
     mixins.CreateModelMixin,
+<<<<<<< Updated upstream
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
@@ -17,6 +18,14 @@ class UserViewSet(
     MappingViewSetMixin,
     GenericViewSet,
 ):
+=======
+                  mixins.ListModelMixin,
+                  mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
+                  MappingViewSetMixin,
+                  GenericViewSet):
+>>>>>>> Stashed changes
     """
     :comment: User CRUD, Login & Join.
     """
@@ -25,9 +34,12 @@ class UserViewSet(
         "create": UserSerializer,
         "retrieve": UserSerializer,
         "list": UserSerializer,
+<<<<<<< Updated upstream
         "update": UserSerializer,
         "partial_update": UserSerializer,
         "destroy": UserSerializer,
+=======
+>>>>>>> Stashed changes
     }
     queryset = User.objects.filter(is_active=True, is_staff=False, is_superuser=False)
 

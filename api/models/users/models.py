@@ -45,10 +45,14 @@ class User(DefaultModel, AbstractBaseUser, PermissionsMixin):
         max_length=8, help_text="생년월일 (YYYYMMDD)", null=True, blank=True
     )
     zip_code = models.CharField(
+<<<<<<< Updated upstream
         max_length=8, null=False, blank=False, help_text="고객 ZIP 코드"
     )
     resident_code = models.CharField(
         max_length=16, null=False, blank=False, help_text="고객 주민등록번호"
+=======
+        max_length=8, null=True, blank=True, help_text="고객 ZIP 코드"
+>>>>>>> Stashed changes
     )
     address = models.CharField(
         max_length=255, null=True, blank=True, help_text="고객 주소"
@@ -56,7 +60,11 @@ class User(DefaultModel, AbstractBaseUser, PermissionsMixin):
     address_detail = models.CharField(
         max_length=255, null=True, blank=True, help_text="고객 상세 주소"
     )
+<<<<<<< Updated upstream
     ci = models.CharField(max_length=128, null=True, blank=True, help_text="고객 CI 값")
+=======
+    ci = models.CharField(max_length=128, null=False, blank=False, help_text="고객 CI 값")
+>>>>>>> Stashed changes
     di = models.CharField(max_length=256, null=True, blank=True, help_text="고객 DI 값")
     password = models.CharField(
         max_length=128,
@@ -66,8 +74,13 @@ class User(DefaultModel, AbstractBaseUser, PermissionsMixin):
     )
     phone_number = models.CharField(
         max_length=16,
+<<<<<<< Updated upstream
         null=False,
         blank=False,
+=======
+        null=True,
+        blank=True,
+>>>>>>> Stashed changes
         help_text="고객 휴대전화 번호(010XXXXYYYY)",
     )
     is_active = models.BooleanField(

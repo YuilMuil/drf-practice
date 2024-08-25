@@ -54,12 +54,17 @@ class Migration(migrations.Migration):
                 (
                     "gender",
                     models.PositiveSmallIntegerField(
+<<<<<<< Updated upstream
                         blank=True, help_text="0: 남자, 1: 여자, 2: 알수없음", null=True
+=======
+                        blank=False, help_text="0: 남자, 1: 여자, 2: 알수없음", null=False
+>>>>>>> Stashed changes
                     ),
                 ),
                 (
                     "birth_date",
                     models.CharField(
+<<<<<<< Updated upstream
                         blank=True,
                         help_text="생년월일 (YYYYMMDD)",
                         max_length=8,
@@ -71,6 +76,15 @@ class Migration(migrations.Migration):
                     "resident_code",
                     models.CharField(help_text="고객 주민등록번호", max_length=16),
                 ),
+=======
+                        blank=False,
+                        help_text="생년월일 (YYYYMMDD)",
+                        max_length=8,
+                        null=False,
+                    ),
+                ),
+                ("zip_code", models.CharField(help_text="고객 ZIP 코드", max_length=8, null=True, blank=True)),
+>>>>>>> Stashed changes
                 (
                     "address",
                     models.CharField(
@@ -89,7 +103,11 @@ class Migration(migrations.Migration):
                 (
                     "ci",
                     models.CharField(
+<<<<<<< Updated upstream
                         blank=True, help_text="고객 CI 값", max_length=128, null=True
+=======
+                        blank=False, help_text="고객 CI 값", max_length=128, null=False
+>>>>>>> Stashed changes
                     ),
                 ),
                 (
@@ -107,7 +125,11 @@ class Migration(migrations.Migration):
                 (
                     "phone_number",
                     models.CharField(
+<<<<<<< Updated upstream
                         help_text="고객 휴대전화 번호(010XXXXYYYY)", max_length=16
+=======
+                        help_text="고객 휴대전화 번호(010XXXXYYYY)", max_length=16, blank=True, null=True
+>>>>>>> Stashed changes
                     ),
                 ),
                 (
@@ -146,4 +168,8 @@ class Migration(migrations.Migration):
                 "get_latest_by": "id",
             },
         ),
+<<<<<<< Updated upstream
     ]
+=======
+    ]
+>>>>>>> Stashed changes
